@@ -416,6 +416,9 @@ async def changename(context, *name):
         return
     if name.startswith('\''):
         name = name.strip('\'')
+    if "://" in name:
+        await context.send(f'Names cannot contain links')
+        return
 
     author = context.author.id
     if author not in registered_members:
