@@ -121,6 +121,9 @@ class Running(commands.Cog):
         if not name:
             await context.send(f'Must supply the name you are wanting to change to, usage: `{helpers.PREFIX}changename <NAME>`')
             return
+        if len(name) >= 256:
+            await context.send(f'Names must be less than 256 characters')
+            return
         if name.startswith('\''):
             name = name.strip('\'')
         if "://" in name:
