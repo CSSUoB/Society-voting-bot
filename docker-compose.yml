@@ -1,0 +1,17 @@
+services:
+  votingbot:
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/data
+      - type: bind
+        source: ./.env
+        target: /app/.env
+    environment:
+      VOTERS_FILE: data/voters
+      STANDING_FILE: data/standing
+      REFERENDA_FILE: data/referenda
+      NAMES_FILE: data/names
+
