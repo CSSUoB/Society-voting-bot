@@ -123,6 +123,9 @@ class Running(commands.Cog):
             return
         if name.startswith('\''):
             name = name.strip('\'')
+        if "://" in name:
+            await context.send(f'Names cannot contain links')
+            return
     
         author = context.author.id
         if author not in helpers.registered_members:
