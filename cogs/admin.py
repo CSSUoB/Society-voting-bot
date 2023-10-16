@@ -125,6 +125,7 @@ class Admin(commands.Cog):
             max_react = list(helpers.EMOJI_LOOKUP)[num_candidates-1]
 
             for voter in helpers.registered_members:
+                await asyncio.sleep(0.5)
                 self.bot.loop.create_task(self.distribute_post_ballot(voter, post, num_candidates, max_react))
 
 
